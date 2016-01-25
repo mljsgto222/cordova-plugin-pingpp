@@ -112,6 +112,8 @@
         <resource-file src="libs/ios/Pingpp.bundle"/>
         <source-file src="libs/ios/libpingppcore.a" framework="true"/>
         <header-file src="libs/ios/Pingpp.h"/>
+        <source-file src="libs/ios/libpingpp+network.a" framework="true"/>
+        <header-file src="libs/ios/PingppURLResponse.h"/>
 
         <config-file target="*-Info.plist" parent="CFBundleURLTypes">
             <array>
