@@ -123,6 +123,14 @@
                 </dict>
             </array>
         </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>$URL_SCHEME</string>
+                </dict>
+            </array>
+        </config-file>
         <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
             <key>LSApplicationQueriesSchemes</key>
             <array>
