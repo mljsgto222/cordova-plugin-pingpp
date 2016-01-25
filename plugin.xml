@@ -81,15 +81,18 @@
         <framework src="CFNetwork.framework" />
         <framework src="SystemConfiguration.framework" />
         <framework src="Security.framework" />
+        <framework src="QuartzCore.framework" />
+        <framework src="CoreTelephony.framework" />
         <framework src="libc++.dylib" />
         <framework src="libz.dylib" />
         <framework src="libsqlite3.0.dylib" />
+        <framework src="libstdc++.tbd" />
 
         <!-- Channels -->
         <!-- Alipay -->
-        <resource-file src="libs/ios/Channels/Alipay/AlipaySDK.bundle"/>
-        <framework src="libs/ios/Channels/Alipay/AlipaySDK.framework" custom="true"/>
-        <source-file src="libs/ios/Channels/Alipay/libpingpp+alipay.a" framework="true"/>
+        <!--<resource-file src="libs/ios/Channels/Alipay/AlipaySDK.bundle"/>-->
+        <!--<framework src="libs/ios/Channels/Alipay/AlipaySDK.framework" custom="true"/>-->
+        <!--<source-file src="libs/ios/Channels/Alipay/libpingpp+alipay.a" framework="true"/>-->
 
         <!-- wx -->
         <source-file src="libs/ios/Channels/Wx/libpingpp+wx.a" framework="true"/>
@@ -98,12 +101,12 @@
         <header-file src="libs/ios/Channels/Wx/WXApiObject.h" />
 
         <!-- UnionPay -->
-        <source-file src="libs/ios/Channels/UnionPay/libpingpp+up.a" framework="true"/>
-        <source-file src="libs/ios/Channels/UnionPay/libUPPayPlugin.a" framework="true"/>
+        <!--<source-file src="libs/ios/Channels/UnionPay/libpingpp+up.a" framework="true"/>-->
+        <!--<source-file src="libs/ios/Channels/UnionPay/libUPPayPlugin.a" framework="true"/>-->
 
         <!-- ApplePay -->
-        <source-file src="libs/ios/Channels/ApplePay/libpingpp+applepay.a" framework="true"/>
-        <header-file src="libs/ios/Channels/ApplePay/Pingpp+ApplePay.h" />
+        <!--<source-file src="libs/ios/Channels/ApplePay/libpingpp+applepay.a" framework="true"/>-->
+        <!--<header-file src="libs/ios/Channels/ApplePay/Pingpp+ApplePay.h" />-->
 
         <!-- pingxx -->
         <resource-file src="libs/ios/Pingpp.bundle"/>
@@ -120,7 +123,22 @@
                 </dict>
             </array>
         </config-file>
-
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <key>LSApplicationQueriesSchemes</key>
+            <array>
+                <string>weixin</string>
+                <string>wechat</string>
+                <string>alipay</string>
+            </array>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+            </dict>
+        </config-file>
+        
         <config-file target="config.xml" parent="/widget">
             <feature name="PingppPlugin">
                 <param name="ios-package" value="PingppPlugin"/>
