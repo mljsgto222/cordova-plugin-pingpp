@@ -12,11 +12,17 @@
 
     NSArray* URLTypes = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
     if (URLTypes != nil) {
-        NSDictionary* dict = [URLTypes objectAtIndex:0];
-        if (dict != nil) {
-            NSArray* URLSchemes = [dict objectForKey:@"CFBundleURLSchemes"];
-            if (URLSchemes != nil) {
-                URLScheme = [URLSchemes objectAtIndex:0];
+        for (int i = 0; i < URLTypes.count; i++) {
+            NSDictionary* dict = [URLTypes objectAtIndex:i];
+            if(dict != nil){
+                NSString* name = [dict objectForKey:@"CFBundleURLName"];
+                if([name isEqualToString:@"pingpp"]){
+                    NSArray* URLSchemes = [dict objectForKey:@"CFBundleURLSchemes"];
+                    if (URLSchemes != nil) {
+                        URLScheme = [URLSchemes objectAtIndex:0];
+                        break;
+                    }
+                }
             }
         }
     }
