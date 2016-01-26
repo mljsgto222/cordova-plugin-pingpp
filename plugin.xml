@@ -118,6 +118,8 @@
         <config-file target="*-Info.plist" parent="CFBundleURLTypes">
             <array>
                 <dict>
+                    <key>CFBundleURLName</key>
+                    <string>pingpp</string>
                     <key>CFBundleURLSchemes</key>
                     <array>
                         <string>$URL_SCHEME</string>
