@@ -44,13 +44,20 @@ public class PingppPlugin extends CordovaPlugin {
                 //String extraMsg = data.getExtras().getString("extra_msg"); // 错误信息
 
                 if(result.equals("success")){
-                    callbackContext.success(result);
+                    if(this.callbackContext != null){
+                        this.callbackContext.success(result);
+                    }
                 }else {
-                    callbackContext.error(result);
+                    if(this.callbackContext != null){
+                        this.callbackContext.error(result);
+                    }
                 }
             } else if (resultCode == android.app.Activity.RESULT_CANCELED) {
-                callbackContext.error("cancel");
+                if(this.callbackContext != null){
+                    this.callbackContext.error("cancel");
+                }
             }
         }
     }
+
 }
